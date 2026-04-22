@@ -36,7 +36,7 @@ export async function runTurn(
     // Tool loop: keep going until Claude stops calling tools.
     while (true) {
       const stream = client().messages.stream({
-        model: "claude-sonnet-4-6",
+        model: "claude-haiku-4-5-20251001",
         max_tokens: 8192,
         system: [
           // Large vocab context — cached across turns.
