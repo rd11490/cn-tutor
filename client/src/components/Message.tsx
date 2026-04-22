@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
-import { ensureLoaded, lookupWord, segmentText, isChinese, type DictEntry } from "../lib/dictionary";
+import { ensureLoaded, isDictReady, lookupWord, segmentText, isChinese, type DictEntry } from "../lib/dictionary";
 
 interface WordPopup {
   word: string;
@@ -56,10 +56,12 @@ export interface MessageProps {
 
 export default function Message({ role, content, toolEvents }: MessageProps) {
   const [popup, setPopup] = useState<WordPopup | null>(null);
-  const [dictReady, setDictReady] = useState(false);
+  const [dictReady, setDictReady] = useState(() => isDictReady());
 
   useEffect(() => {
-    ensureLoaded().then(() => setDictReady(true));
+    if (!isDictReady()) {
+      ensureLoaded().then(() => setDictReady(true));
+    }
   }, []);
 
   function handleLookup(word: string, entry: DictEntry | null, x: number, y: number) {
@@ -91,9 +93,15 @@ export default function Message({ role, content, toolEvents }: MessageProps) {
         <div className="message-text">
           <ReactMarkdown
             components={{
-              p: ({ children }) => <p>{processChildren(children, renderText)}</p>,
-              li: ({ children }) => <li>{processChildren(children, renderText)}</li>,
-              td: ({ children }) => <td>{processChildren(children, renderText)}</td>,
+              p:      ({ children }) => <p>{processChildren(children, renderText)}</p>,
+              li:     ({ children }) => <li>{processChildren(children, renderText)}</li>,
+              td:     ({ children }) => <td>{processChildren(children, renderText)}</td>,
+              strong: ({ children }) => <strong>{processChildren(children, renderText)}</strong>,
+              em:     ({ children }) => <em>{processChildren(children, renderText)}</em>,
+              h1:     ({ children }) => <h1>{processChildren(children, renderText)}</h1>,
+              h2:     ({ children }) => <h2>{processChildren(children, renderText)}</h2>,
+              h3:     ({ children }) => <h3>{processChildren(children, renderText)}</h3>,
+              h4:     ({ children }) => <h4>{processChildren(children, renderText)}</h4>,
             }}
           >
             {content}

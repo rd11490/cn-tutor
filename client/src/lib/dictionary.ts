@@ -12,6 +12,10 @@ const MAX_WORD_LEN = 6;
 let dict: Map<string, [string, string[]]> | null = null;
 let loadPromise: Promise<void> | null = null;
 
+export function isDictReady(): boolean {
+  return dict !== null;
+}
+
 export function ensureLoaded(): Promise<void> {
   if (dict) return Promise.resolve();
   if (!loadPromise) {
@@ -23,6 +27,9 @@ export function ensureLoaded(): Promise<void> {
   }
   return loadPromise;
 }
+
+// Start loading immediately on module import so the dict is ready before first message.
+ensureLoaded();
 
 export function lookupWord(word: string): DictEntry | null {
   const entry = dict?.get(word);
