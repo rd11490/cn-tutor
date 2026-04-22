@@ -1,6 +1,6 @@
 import type Anthropic from "@anthropic-ai/sdk";
 import type { SessionData } from "../harness/session.js";
-import { syncAnki, checkAnkiCard, createAnkiCard } from "./anki.js";
+import { syncAnki, checkAnkiCard, createAnkiCard, refreshAnkiSnapshot } from "./anki.js";
 import { lookupWord } from "./dictionary.js";
 import { saveVocabNote, saveGrammarNote, endSession } from "./session-tools.js";
 import type { EndSessionInput } from "./session-tools.js";
@@ -51,6 +51,15 @@ export const TOOLS: Anthropic.Tool[] = [
     name: "sync_anki",
     description:
       "Sync Anki with AnkiWeb to pull the latest card data. Call at the start of the first lesson in a session.",
+    input_schema: {
+      type: "object",
+      properties: {},
+    },
+  },
+  {
+    name: "refresh_anki_snapshot",
+    description:
+      "Fetch all cards from the Chinese Vocabulary deck, categorize by confidence, and update the local anki-snapshot.md. Call this to get up-to-date stats on what the student knows.",
     input_schema: {
       type: "object",
       properties: {},
@@ -130,6 +139,9 @@ export async function executeTool(
 
     case "sync_anki":
       return syncAnki();
+
+    case "refresh_anki_snapshot":
+      return refreshAnkiSnapshot();
 
     case "save_vocab_note":
       return saveVocabNote(session, input.word as string, input.notes as string);
