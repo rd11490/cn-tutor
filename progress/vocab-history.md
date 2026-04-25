@@ -13,3 +13,10 @@ Words and notes from study sessions. Updated automatically at session end.
 - **越来越**: Pattern: [subject] + 越来越 + [adjective], or with 变得: [subject] + 变得 + 越来越 + [adjective]. Example: 晚上我变得越来越累。
 - **突然**: Adverb meaning "suddenly." Goes before the verb it modifies. Example: 我突然听到很大的声音。
 - **决定**: Verb: to decide. Structure: 决定 + [verb phrase]. Can negate: 决定不 + [verb]. Example: 我决定不回家。
+
+## 2026-04-25
+- **完成**: Formal register: to complete. Pairs well with 有...要完成 structure in written Chinese. Example: 我有很多工作要完成。
+- **解决**: To solve/resolve. Common in formal/written register. Note: 问题 (noun = problem), not 问起 (verb = to ask about).
+- **影响**: To affect/influence. Formal register. Used with 会 to show natural consequences: 这会影响...。
+- **付出**: To expend/contribute (effort, time, energy). Pairs idiomatically with 努力: 付出努力。More formal than 有努力。
+- **不断**: Constantly/continuously. Formal/written adverb. Example: 教师需要不断学习新方法。

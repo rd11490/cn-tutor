@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { ensureLoaded, isDictReady, lookupWord, segmentText, isChinese, type DictEntry } from "../lib/dictionary";
 
 interface WordPopup {
@@ -92,6 +93,7 @@ export default function Message({ role, content, toolEvents }: MessageProps) {
         )}
         <div className="message-text">
           <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
             components={{
               p:      ({ children }) => <p>{processChildren(children, renderText)}</p>,
               li:     ({ children }) => <li>{processChildren(children, renderText)}</li>,

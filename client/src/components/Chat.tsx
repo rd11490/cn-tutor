@@ -73,6 +73,7 @@ const Chat = forwardRef<ChatHandle>((_, ref) => {
   const [streaming, setStreaming] = useState(false);
   const [sessionId, setSessionId] = useState<string | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
+  const sessionEndedRef = useRef(false);
 
   // Auto-save beacon on window close
   useEffect(() => {
@@ -106,6 +107,7 @@ const Chat = forwardRef<ChatHandle>((_, ref) => {
     setStreaming(true);
 
     let currentSessionId = sessionId;
+    sessionEndedRef.current = false;
 
     await streamChat(
       text,
@@ -125,6 +127,7 @@ const Chat = forwardRef<ChatHandle>((_, ref) => {
         });
       },
       (name) => {
+        if (name === "end_session") sessionEndedRef.current = true;
         setMessages((prev) => {
           const last = prev.at(-1)!;
           const events = (last.toolEvents ?? []).map((te) =>
@@ -133,7 +136,14 @@ const Chat = forwardRef<ChatHandle>((_, ref) => {
           return [...prev.slice(0, -1), { ...last, toolEvents: events }];
         });
       },
-      () => setStreaming(false),
+      () => {
+        setStreaming(false);
+        if (sessionEndedRef.current) {
+          sessionEndedRef.current = false;
+          setMessages([]);
+          setSessionId(null);
+        }
+      },
       (msg) => {
         setMessages((prev) => {
           const last = prev.at(-1)!;

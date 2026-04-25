@@ -1,4 +1,5 @@
 import type { SessionData } from "../harness/session.js";
+import type Anthropic from "@anthropic-ai/sdk";
 import {
   appendVocabHistory,
   appendGrammarHistory,
@@ -32,19 +33,34 @@ export interface EndSessionInput {
   next_session_notes?: string;
 }
 
-export function endSession(
-  session: SessionData,
-  input: EndSessionInput
-): { success: boolean; message: string } {
-  if (session.ended) {
-    return { success: false, message: "Session already ended." };
+function formatTranscript(messages: Anthropic.MessageParam[]): string {
+  const lines: string[] = [];
+  for (const msg of messages) {
+    const label = msg.role === "user" ? "### You" : "### Tutor";
+    let text = "";
+    if (typeof msg.content === "string") {
+      text = msg.content;
+    } else {
+      text = (msg.content as Array<{ type: string; text?: string }>)
+        .filter((b) => b.type === "text" && b.text)
+        .map((b) => b.text!)
+        .join("\n");
+    }
+    if (text.trim()) lines.push(`${label}\n\n${text.trim()}`);
   }
+  return lines.join("\n\n---\n\n");
+}
 
-  const date = new Date().toISOString().slice(0, 10);
-  const timestamp = new Date().toLocaleString();
-
-  // Write session file
-  const sessionContent = `# Session — ${timestamp}
+export function buildSessionContent(
+  timestamp: string,
+  date: string,
+  input: EndSessionInput,
+  vocabNotes: SessionData["vocabNotes"],
+  grammarNotes: SessionData["grammarNotes"],
+  messages: Anthropic.MessageParam[]
+): string {
+  const transcript = formatTranscript(messages);
+  return `# Session — ${timestamp}
 
 ## Summary
 ${input.summary}
@@ -55,10 +71,39 @@ ${input.vocab_learned.map((w) => `- ${w}`).join("\n") || "None recorded."}
 ## Grammar Concepts
 ${input.grammar_concepts.map((g) => `- ${g}`).join("\n") || "None recorded."}
 
-${input.next_session_notes ? `## Next Session\n${input.next_session_notes}` : ""}
-`;
+${input.next_session_notes ? `## Next Session\n${input.next_session_notes}\n` : ""}
+---
 
-  writeSessionFile(date, sessionContent);
+## Full Transcript
+
+${transcript || "_No transcript available._"}
+`;
+}
+
+export function endSession(
+  session: SessionData,
+  input: EndSessionInput
+): { success: boolean; message: string } {
+  if (session.ended) {
+    return { success: false, message: "Session already ended." };
+  }
+
+  const now = new Date();
+  const date = now.toISOString().slice(0, 10);
+  const hhmm = now.toTimeString().slice(0, 5).replace(":", "");
+  const timestamp = now.toLocaleString();
+  const filename = `${date}-${hhmm}`;
+
+  const sessionContent = buildSessionContent(
+    timestamp,
+    date,
+    input,
+    session.vocabNotes,
+    session.grammarNotes,
+    session.messages
+  );
+
+  writeSessionFile(filename, sessionContent);
 
   // Append to running vocab history
   if (session.vocabNotes.length > 0) {
@@ -80,5 +125,5 @@ ${input.next_session_notes ? `## Next Session\n${input.next_session_notes}` : ""
   }
 
   markEnded(session.id);
-  return { success: true, message: `Session saved to progress/sessions/${date}.md` };
+  return { success: true, message: `Session saved to progress/sessions/${filename}.md` };
 }
