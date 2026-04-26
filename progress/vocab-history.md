@@ -20,3 +20,11 @@ Words and notes from study sessions. Updated automatically at session end.
 - **影响**: To affect/influence. Formal register. Used with 会 to show natural consequences: 这会影响...。
 - **付出**: To expend/contribute (effort, time, energy). Pairs idiomatically with 努力: 付出努力。More formal than 有努力。
 - **不断**: Constantly/continuously. Formal/written adverb. Example: 教师需要不断学习新方法。
+
+## 2026-04-26
+- **不停**: Constantly / without stopping. Used with parallel verbs for emphasis: 不停休息，不停睡觉 (kept resting, kept sleeping). Natural in conversational narratives about activities that went on for long periods.
+- **几乎**: Almost / nearly. Position: before the verb or adjective. Works with both positive and negative: 几乎没有时间 (almost no time), 几乎每个人 (almost everyone). Very common in conversational descriptions.
+- **不过**: But / however (softer, conversational). Contrasts with 但是 (more direct). Used to soften objections or add mild contrast. Key pattern: [positive statement], 不过 [mild objection]. Sounds more natural in casual speech than 但是.
+- **对了**: By the way / that's right (discourse marker). Used to transition to a new thought or ask a follow-up question naturally. Very common in dialogue. Position: at the start of a sentence or clause.
+- **遇到**: To encounter / come across / run into. Can mean both physical meetings (遇到朋友 = ran into a friend) and abstract problems (遇到问题 = encountered a problem). Used in both casual and formal contexts.
+- **性格**: Personality / character / temperament. Use: 他的性格很好 (his personality is good), 不喜欢某人的性格 (don't like someone's personality). Common in personal descriptions.

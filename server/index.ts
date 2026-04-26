@@ -69,28 +69,18 @@ app.post("/api/session-beacon", express.text({ type: "*/*" }), async (req, res) 
   try {
     const { sessionId } = JSON.parse(req.body as string) as { sessionId: string };
     const session = getSession(sessionId);
-    if (session && !session.ended && session.messages.length > 0) {
-      const { writeSessionFile } = await import("./lib/context.js");
-      const now = new Date();
-      const date = now.toISOString().slice(0, 10);
-      const hhmm = now.toTimeString().slice(0, 5).replace(":", "");
-      const ts = now.toLocaleString();
+    if (session && !session.ended && session.vocabNotes.length > 0) {
+      const { appendVocabHistory, appendGrammarHistory, writeSessionFile } =
+        await import("./lib/context.js");
+      const date = new Date().toISOString().slice(0, 10);
+      const ts = new Date().toLocaleString();
 
-      const { buildSessionContent } = await import("./tools/session-tools.js");
-      const content = buildSessionContent(
-        `${ts} (auto-saved)`,
-        date,
-        {
-          summary: "_Session closed without explicit end._",
-          vocab_learned: session.vocabNotes.map((n) => n.word),
-          grammar_concepts: session.grammarNotes.map((n) => n.concept),
-        },
-        session.vocabNotes,
-        session.grammarNotes,
-        session.messages
+      writeSessionFile(
+        `${date}-auto`,
+        `# Auto-saved Session — ${ts}\n\n_Session closed without explicit end. Partial data below._\n\n` +
+          `## Vocab Notes\n${session.vocabNotes.map((n) => `- **${n.word}**: ${n.notes}`).join("\n")}\n\n` +
+          `## Grammar Notes\n${session.grammarNotes.map((n) => `- **${n.concept}**: ${n.explanation}`).join("\n")}`
       );
-
-      writeSessionFile(`${date}-${hhmm}-auto`, content);
     }
     res.sendStatus(204);
   } catch {

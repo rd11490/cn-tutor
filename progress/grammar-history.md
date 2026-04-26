@@ -28,3 +28,8 @@ Formal/written structure meaning "to have [something] that needs [doing]." Expre
 以便 (so that / in order to) shows deliberate purpose/intention. 所以 (so/therefore) shows natural consequence/result. In formal writing, use 以便 when showing goal/intention, not just causality. Formal structure: [action] 以便 [goal].
 
 *Example:* 老师会努力以便学生获得更好的教育。(Teachers will work hard so that students obtain better education — intentional purpose.)
+
+## 虽然...但是 (Although... but) (2026-04-26)
+A concessive structure showing acknowledgment of an obstacle, then contrast/commitment. More formal and emphatic than just 不过. Structure: 虽然 [obstacle/fact], 但是 [result/action]. Shows stronger determination or contrast than 不过 alone. Common in both conversational and written Chinese.
+
+*Example:* 虽然天气不好，但是我们还是要去爬山。(Although the weather is bad, we still want to go hiking.) / 虽然工作很忙，但是我很开心。(Although I'm busy with work, I'm still happy.)
