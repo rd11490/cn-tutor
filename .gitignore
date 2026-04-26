@@ -2,5 +2,4 @@ node_modules/
 dist/
 .env
 *.local
-progress/sessions/*.md
 !progress/sessions/.gitkeep
