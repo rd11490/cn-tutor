@@ -9,6 +9,41 @@ function read(p: string): string {
   return fs.existsSync(p) ? fs.readFileSync(p, "utf-8") : "";
 }
 
+export interface LevelResult {
+  level: number;
+  vocab_score: number;
+  grammar_score: number;
+  reading_score: number;
+  writing_score?: number;
+  overall_score: number;
+  passed: boolean;
+}
+
+export interface Profile {
+  hskLevel: number;
+  assessedAt?: string;
+  assessmentReasoning?: string;
+  levelResults?: LevelResult[];
+}
+
+export function loadProfile(): Profile {
+  const p = path.join(PROGRESS_DIR, "profile.json");
+  if (!fs.existsSync(p)) return { hskLevel: 3 };
+  try {
+    return JSON.parse(fs.readFileSync(p, "utf-8")) as Profile;
+  } catch {
+    return { hskLevel: 3 };
+  }
+}
+
+export function saveProfile(profile: Profile): void {
+  fs.writeFileSync(
+    path.join(PROGRESS_DIR, "profile.json"),
+    JSON.stringify(profile, null, 2),
+    "utf-8"
+  );
+}
+
 export interface AnkiSnapshot {
   total: number;
   confident: number;

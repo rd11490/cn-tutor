@@ -11,6 +11,11 @@ export interface ChatHandle {
   endSession: () => void;
 }
 
+interface ChatProps {
+  mode: "chat" | "assess";
+  onLevelAssessed?: (level: number) => void;
+}
+
 interface ChatMessage extends MessageProps {
   id: string;
 }
@@ -23,6 +28,7 @@ interface ToolEvent {
 async function streamChat(
   message: string,
   sessionId: string | null,
+  mode: "chat" | "assess",
   onSessionId: (id: string) => void,
   onChunk: (text: string) => void,
   onToolStart: (name: string) => void,
@@ -33,7 +39,7 @@ async function streamChat(
   const res = await fetch("/api/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ message, sessionId }),
+    body: JSON.stringify({ message, sessionId, mode }),
   });
 
   const reader = res.body!.getReader();
@@ -67,7 +73,7 @@ async function streamChat(
 let msgCounter = 0;
 const nextId = () => String(++msgCounter);
 
-const Chat = forwardRef<ChatHandle>((_, ref) => {
+const Chat = forwardRef<ChatHandle, ChatProps>(({ mode, onLevelAssessed }, ref) => {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
   const [streaming, setStreaming] = useState(false);
@@ -110,6 +116,7 @@ const Chat = forwardRef<ChatHandle>((_, ref) => {
     await streamChat(
       text,
       currentSessionId,
+      mode,
       (id) => { setSessionId(id); currentSessionId = id; },
       (chunk) => {
         setMessages((prev) => {
@@ -124,7 +131,11 @@ const Chat = forwardRef<ChatHandle>((_, ref) => {
           return [...prev.slice(0, -1), { ...last, toolEvents: events }];
         });
       },
-      (name) => {
+      (name, result) => {
+        if (name === "save_hsk_level" && onLevelAssessed) {
+          const r = result as { level?: number };
+          if (r?.level) onLevelAssessed(r.level);
+        }
         setMessages((prev) => {
           const last = prev.at(-1)!;
           const events = (last.toolEvents ?? []).map((te) =>
@@ -173,7 +184,9 @@ const Chat = forwardRef<ChatHandle>((_, ref) => {
       <div className="messages">
         {messages.length === 0 && (
           <div className="messages-empty">
-            Say <em>"start a lesson"</em> for a structured class, or ask anything about Mandarin.
+            {mode === "assess"
+              ? <>Proficiency test mode. Type <em>"ready"</em> to begin.</>
+              : <>Say <em>"start a lesson"</em> for a structured class, or ask anything about Mandarin.</>}
           </div>
         )}
         {messages.map((msg) => (
@@ -182,6 +195,7 @@ const Chat = forwardRef<ChatHandle>((_, ref) => {
             role={msg.role}
             content={msg.content}
             toolEvents={msg.toolEvents}
+            disableHighlight={mode === "assess"}
           />
         ))}
         <div ref={bottomRef} />

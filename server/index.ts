@@ -5,6 +5,8 @@ import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 import { createSession, getSession } from "./harness/session.js";
 import { runTurn } from "./harness/tool-loop.js";
+import { buildAssessmentPrompt } from "./harness/assess-prompt.js";
+import { ASSESS_TOOLS } from "./tools/index.js";
 import { lookupWord, segmentText, loadDictionary, getCompressedDictionary } from "./tools/dictionary.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -32,9 +34,10 @@ app.post("/api/chat", (req, res) => {
   res.setHeader("Cache-Control", "no-cache");
   res.setHeader("Connection", "keep-alive");
 
-  const { message, sessionId } = req.body as {
+  const { message, sessionId, mode } = req.body as {
     message: string;
     sessionId?: string;
+    mode?: "chat" | "assess";
   };
 
   const send = (data: object) => res.write(`data: ${JSON.stringify(data)}\n\n`);
@@ -47,10 +50,14 @@ app.post("/api/chat", (req, res) => {
 
   const capturedSession = session;
 
+  const runOptions = mode === "assess"
+    ? { systemPrompt: buildAssessmentPrompt(), tools: ASSESS_TOOLS }
+    : {};
+
   runTurn(capturedSession, message, (event) => {
     send(event);
     if (event.type === "done" || event.type === "error") res.end();
-  }).catch((err) => {
+  }, runOptions).catch((err) => {
     send({ type: "error", message: String(err) });
     res.end();
   });

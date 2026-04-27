@@ -3,6 +3,11 @@ import type { SessionData } from "./session.js";
 import { TOOLS, executeTool } from "../tools/index.js";
 import { buildSystemPrompt } from "./system-prompt.js";
 
+export interface RunTurnOptions {
+  systemPrompt?: string;
+  tools?: Anthropic.Tool[];
+}
+
 let _client: Anthropic | null = null;
 const client = () => (_client ??= new Anthropic());
 
@@ -26,11 +31,13 @@ function dateSuffix(): string {
 export async function runTurn(
   session: SessionData,
   userMessage: string,
-  onEvent: (event: SSEEvent) => void
+  onEvent: (event: SSEEvent) => void,
+  options: RunTurnOptions = {}
 ): Promise<void> {
   session.messages.push({ role: "user", content: userMessage });
 
-  const systemPrompt = buildSystemPrompt();
+  const systemPrompt = options.systemPrompt ?? buildSystemPrompt();
+  const tools = options.tools ?? TOOLS;
 
   try {
     // Tool loop: keep going until Claude stops calling tools.
@@ -39,12 +46,10 @@ export async function runTurn(
         model: "claude-haiku-4-5-20251001",
         max_tokens: 8192,
         system: [
-          // Large vocab context — cached across turns.
           { type: "text", text: systemPrompt, cache_control: { type: "ephemeral" } },
-          // Small volatile suffix — NOT cached (changes daily).
           { type: "text", text: dateSuffix() },
         ],
-        tools: TOOLS,
+        tools,
         messages: session.messages,
       });
 

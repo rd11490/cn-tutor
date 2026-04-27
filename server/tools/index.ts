@@ -4,6 +4,8 @@ import { syncAnki, checkAnkiCard, createAnkiCard, refreshAnkiSnapshot } from "./
 import { lookupWord } from "./dictionary.js";
 import { saveVocabNote, saveGrammarNote, endSession } from "./session-tools.js";
 import type { EndSessionInput } from "./session-tools.js";
+import { saveHskLevel } from "./profile.js";
+import type { LevelResult } from "../lib/context.js";
 
 export const TOOLS: Anthropic.Tool[] = [
   {
@@ -120,6 +122,45 @@ export const TOOLS: Anthropic.Tool[] = [
   },
 ];
 
+export const ASSESS_TOOLS: Anthropic.Tool[] = [
+  {
+    name: "save_hsk_level",
+    description:
+      "Save the final assessed HSK level and full per-level score breakdown. Call ONLY after all levels have been tested and graded.",
+    input_schema: {
+      type: "object",
+      properties: {
+        final_level: {
+          type: "number",
+          description: "Highest HSK level the student passed (0 if failed HSK 1)",
+        },
+        reasoning: {
+          type: "string",
+          description: "1–2 sentence summary of overall performance across all tested levels",
+        },
+        level_results: {
+          type: "array",
+          description: "Score breakdown for every level that was tested",
+          items: {
+            type: "object",
+            properties: {
+              level:          { type: "number", description: "HSK level number (1–6)" },
+              vocab_score:    { type: "number", description: "Vocabulary section score 0–100" },
+              grammar_score:  { type: "number", description: "Grammar section score 0–100" },
+              reading_score:  { type: "number", description: "Reading section score 0–100" },
+              writing_score:  { type: "number", description: "Writing section score 0–100 (omit for HSK 1–2)" },
+              overall_score:  { type: "number", description: "Overall score for this level 0–100" },
+              passed:         { type: "boolean", description: "Whether the student passed this level" },
+            },
+            required: ["level", "vocab_score", "grammar_score", "reading_score", "overall_score", "passed"],
+          },
+        },
+      },
+      required: ["final_level", "reasoning", "level_results"],
+    },
+  },
+];
+
 type ToolInput = Record<string, unknown>;
 
 export async function executeTool(
@@ -156,6 +197,14 @@ export async function executeTool(
 
     case "end_session":
       return endSession(session, input as unknown as EndSessionInput);
+
+    case "save_hsk_level":
+      return saveHskLevel(
+        session,
+        input.final_level as number,
+        input.reasoning as string,
+        input.level_results as Parameters<typeof saveHskLevel>[3]
+      );
 
     default:
       return { error: `Unknown tool: ${name}` };

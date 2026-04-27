@@ -1,3 +1,7 @@
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import type Anthropic from "@anthropic-ai/sdk";
 import type { SessionData } from "../harness/session.js";
 import {
   appendVocabHistory,
@@ -5,6 +9,31 @@ import {
   writeSessionFile,
 } from "../lib/context.js";
 import { markEnded } from "../harness/session.js";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const TRANSCRIPTS_DIR = path.join(__dirname, "..", "..", "progress", "sessions", "transcripts");
+
+function writeTranscript(filename: string, messages: Anthropic.MessageParam[]): void {
+  const lines: string[] = [];
+  for (const msg of messages) {
+    const label = msg.role === "user" ? "**User:**" : "**Tutor:**";
+    let text = "";
+    if (typeof msg.content === "string") {
+      text = msg.content;
+    } else {
+      text = (msg.content as Array<{ type: string; text?: string }>)
+        .filter((b) => b.type === "text" && b.text)
+        .map((b) => b.text!)
+        .join("\n");
+    }
+    if (text.trim()) lines.push(`${label}\n\n${text.trim()}`);
+  }
+
+  const timestamp = new Date().toLocaleString();
+  const content = `# Session Transcript — ${timestamp}\n\n${lines.join("\n\n---\n\n")}\n`;
+  fs.mkdirSync(TRANSCRIPTS_DIR, { recursive: true });
+  fs.writeFileSync(path.join(TRANSCRIPTS_DIR, `${filename}.md`), content, "utf-8");
+}
 
 export function saveVocabNote(
   session: SessionData,
@@ -59,6 +88,7 @@ ${input.next_session_notes ? `## Next Session\n${input.next_session_notes}` : ""
 `;
 
   writeSessionFile(date, sessionContent);
+  writeTranscript(date, session.messages);
 
   // Append to running vocab history
   if (session.vocabNotes.length > 0) {

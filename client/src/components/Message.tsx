@@ -41,6 +41,7 @@ function ToolEvent({ name, status }: ToolEventProps) {
     save_vocab_note: "Saving vocab note",
     save_grammar_note: "Saving grammar note",
     end_session: "Saving session",
+    save_hsk_level: "Saving assessment result",
   };
   return (
     <div className={`tool-event tool-event--${status}`}>
@@ -53,9 +54,10 @@ export interface MessageProps {
   role: "user" | "assistant";
   content: string;
   toolEvents?: Array<{ name: string; status: "running" | "done" }>;
+  disableHighlight?: boolean;
 }
 
-export default function Message({ role, content, toolEvents }: MessageProps) {
+export default function Message({ role, content, toolEvents, disableHighlight }: MessageProps) {
   const [popup, setPopup] = useState<WordPopup | null>(null);
   const [dictReady, setDictReady] = useState(() => isDictReady());
 
@@ -71,7 +73,7 @@ export default function Message({ role, content, toolEvents }: MessageProps) {
   }
 
   function renderText(text: string): React.ReactNode {
-    if (!dictReady) return text;
+    if (!dictReady || disableHighlight) return text;
     return segmentText(text).map((seg, i) =>
       isChinese(seg[0]) ? (
         <ChineseSpan key={i} text={seg} onLookup={handleLookup} />
