@@ -6,6 +6,7 @@ import { buildSystemPrompt } from "./system-prompt.js";
 export interface RunTurnOptions {
   systemPrompt?: string;
   tools?: Anthropic.Tool[];
+  model?: string;
 }
 
 let _client: Anthropic | null = null;
@@ -38,12 +39,13 @@ export async function runTurn(
 
   const systemPrompt = options.systemPrompt ?? buildSystemPrompt();
   const tools = options.tools ?? TOOLS;
+  const model = options.model ?? "claude-haiku-4-5-20251001";
 
   try {
     // Tool loop: keep going until Claude stops calling tools.
     while (true) {
       const stream = client().messages.stream({
-        model: "claude-haiku-4-5-20251001",
+        model,
         max_tokens: 8192,
         system: [
           { type: "text", text: systemPrompt, cache_control: { type: "ephemeral" } },

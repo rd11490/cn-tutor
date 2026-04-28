@@ -1,4 +1,32 @@
 {
-  "hskLevel": 3,
-  "assessedAt": "2026-04-27"
+  "hskLevel": 2,
+  "assessedAt": "2026-04-28",
+  "assessmentReasoning": "The student passed HSK 1 and HSK 2 with strong vocabulary and reading skills, but failed HSK 3 due to insufficient grammar performance (50%), falling below the required 60% section threshold. Reading was consistently excellent across all levels.",
+  "levelResults": [
+    {
+      "level": 1,
+      "vocab_score": 100,
+      "grammar_score": 100,
+      "reading_score": 100,
+      "overall_score": 100,
+      "passed": true
+    },
+    {
+      "level": 2,
+      "vocab_score": 90,
+      "grammar_score": 70,
+      "reading_score": 100,
+      "overall_score": 87,
+      "passed": true
+    },
+    {
+      "level": 3,
+      "vocab_score": 70,
+      "grammar_score": 50,
+      "reading_score": 100,
+      "writing_score": 60,
+      "overall_score": 71,
+      "passed": false
+    }
+  ]
 }

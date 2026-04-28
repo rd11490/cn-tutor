@@ -51,7 +51,7 @@ app.post("/api/chat", (req, res) => {
   const capturedSession = session;
 
   const runOptions = mode === "assess"
-    ? { systemPrompt: buildAssessmentPrompt(), tools: ASSESS_TOOLS }
+    ? { systemPrompt: buildAssessmentPrompt(), tools: ASSESS_TOOLS, model: "claude-sonnet-4-6" }
     : {};
 
   runTurn(capturedSession, message, (event) => {
