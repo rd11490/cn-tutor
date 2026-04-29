@@ -100,6 +100,11 @@ export function loadVocabHistory(): string {
   return read(path.join(PROGRESS_DIR, "vocab-history.md"));
 }
 
+function stripTranscript(content: string): string {
+  const cutoff = content.search(/^## Full Transcript/m);
+  return cutoff === -1 ? content : content.slice(0, cutoff).trimEnd();
+}
+
 export function loadRecentSessions(count = 3): string[] {
   const sessionsDir = path.join(PROGRESS_DIR, "sessions");
   if (!fs.existsSync(sessionsDir)) return [];
@@ -109,7 +114,7 @@ export function loadRecentSessions(count = 3): string[] {
     .filter((f) => f.endsWith(".md") && f !== ".gitkeep")
     .sort()
     .slice(-count)
-    .map((f) => read(path.join(sessionsDir, f)));
+    .map((f) => stripTranscript(read(path.join(sessionsDir, f))));
 }
 
 export function appendVocabHistory(entry: string): void {

@@ -28,3 +28,7 @@ Words and notes from study sessions. Updated automatically at session end.
 - **对了**: By the way / that's right (discourse marker). Used to transition to a new thought or ask a follow-up question naturally. Very common in dialogue. Position: at the start of a sentence or clause.
 - **遇到**: To encounter / come across / run into. Can mean both physical meetings (遇到朋友 = ran into a friend) and abstract problems (遇到问题 = encountered a problem). Used in both casual and formal contexts.
 - **性格**: Personality / character / temperament. Use: 他的性格很好 (his personality is good), 不喜欢某人的性格 (don't like someone's personality). Common in personal descriptions.
+
+## 2026-04-29
+- **牛仔裤**: Jeans. Literally "cowboy pants." Also can say 牛仔布裤. Used in conversational context when talking about clothing.
+- **面试**: Job interview / interview. Can also say 工作面试 (job interview) for clarity. Common in conversational and formal contexts.

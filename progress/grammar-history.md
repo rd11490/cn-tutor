@@ -33,3 +33,8 @@ Formal/written structure meaning "to have [something] that needs [doing]." Expre
 A concessive structure showing acknowledgment of an obstacle, then contrast/commitment. More formal and emphatic than just 不过. Structure: 虽然 [obstacle/fact], 但是 [result/action]. Shows stronger determination or contrast than 不过 alone. Common in both conversational and written Chinese.
 
 *Example:* 虽然天气不好，但是我们还是要去爬山。(Although the weather is bad, we still want to go hiking.) / 虽然工作很忙，但是我很开心。(Although I'm busy with work, I'm still happy.)
+
+## 本来...但是 + 改主意 (originally planned... but changed mind) (2026-04-29)
+本来 expresses an original plan or intention. 但是 contrasts it with what actually happened or was decided instead. Often paired with 改主意 (change your mind) to show a shift in decision. Structure: 本来想 [original plan], 但是 [reason/obstacle], 所以 [new action]. Common in conversational narratives.
+
+*Example:* 我本来想一直学习到很晚，但是我的邻居一直打扰我，所以我决定早点睡觉。(I originally planned to keep studying until very late, but my roommate kept bothering me, so I decided to go to bed early.)
