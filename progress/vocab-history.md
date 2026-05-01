@@ -32,3 +32,9 @@ Words and notes from study sessions. Updated automatically at session end.
 ## 2026-04-29
 - **牛仔裤**: Jeans. Literally "cowboy pants." Also can say 牛仔布裤. Used in conversational context when talking about clothing.
 - **面试**: Job interview / interview. Can also say 工作面试 (job interview) for clarity. Common in conversational and formal contexts.
+
+## 2026-05-01
+- **其实**: Means "actually / in fact" — used to reveal the truth or correct an assumption. Student confused with 实际 (which sounds more formal/written). 其实 is the natural conversational choice.
+- **到底**: Means "on earth / exactly / after all" — adds emphasis and frustration to questions. Pairs naturally with A-not-A: 你到底想不想去？(Do you actually want to go or not?)
+- **消息**: Means "message / news / information." Common in conversational Chinese, especially with WeChat. 发一条消息 = send a message.
+- **犹豫**: Means "to hesitate / be indecisive." Often used as 犹豫了一下 (hesitated for a moment) before making a decision.

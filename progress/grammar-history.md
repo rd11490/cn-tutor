@@ -38,3 +38,8 @@ A concessive structure showing acknowledgment of an obstacle, then contrast/comm
 本来 expresses an original plan or intention. 但是 contrasts it with what actually happened or was decided instead. Often paired with 改主意 (change your mind) to show a shift in decision. Structure: 本来想 [original plan], 但是 [reason/obstacle], 所以 [new action]. Common in conversational narratives.
 
 *Example:* 我本来想一直学习到很晚，但是我的邻居一直打扰我，所以我决定早点睡觉。(I originally planned to keep studying until very late, but my roommate kept bothering me, so I decided to go to bed early.)
+
+## A-not-A question structure (2026-05-01)
+A-not-A questions are formed by repeating the verb or adjective with 不 in between: Verb+不+Verb or Adj+不+Adj. More direct and colloquial than 吗 questions. Drop 了 in A-not-A questions — the question form implies present state. For two-character adjectives like 好吃, split at the first character: 好不好吃.
+
+*Example:* 你想不想去爬山？(Do you want to go hiking?) / 这个菜好不好吃？(Is this dish good?) / 你愿不愿意帮我？(Are you willing to help me?)

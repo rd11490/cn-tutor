@@ -39,7 +39,7 @@ export async function runTurn(
 
   const systemPrompt = options.systemPrompt ?? buildSystemPrompt();
   const tools = options.tools ?? TOOLS;
-  const model = options.model ?? "claude-haiku-4-5-20251001";
+  const model = options.model ?? "claude-sonnet-4-6";
 
   try {
     // Tool loop: keep going until Claude stops calling tools.
