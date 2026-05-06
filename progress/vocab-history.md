@@ -38,3 +38,22 @@ Words and notes from study sessions. Updated automatically at session end.
 - **到底**: Means "on earth / exactly / after all" — adds emphasis and frustration to questions. Pairs naturally with A-not-A: 你到底想不想去？(Do you actually want to go or not?)
 - **消息**: Means "message / news / information." Common in conversational Chinese, especially with WeChat. 发一条消息 = send a message.
 - **犹豫**: Means "to hesitate / be indecisive." Often used as 犹豫了一下 (hesitated for a moment) before making a decision.
+
+## 2026-05-05
+- **睡不着**: Can't fall asleep. Potential complement structure: verb + 不 + 着. Appeared in text message reading passage about insomnia.
+- **烦恼**: Worries, troubles. Used in conversational context: 你有什么烦恼吗？ From text message reading passage.
+- **噩梦**: Nightmare (è mèng). Came up in warmup correction — 坏梦 is understandable but not natural. Native speakers say 噩梦.
+- **说得容易**: Easier said than done / easy to say. Exasperated response. From reading passage: 小马's reaction to being told to put down her phone at bedtime.
+
+## 2026-05-06
+- **突然**: Warmup recall — used correctly in 我做了一个噩梦，然后突然醒来。Confident.
+- **抱歉**: More sincere/formal apology than 对不起. Used in: 抱歉，我没有空。Came up in reading passage too.
+- **愿意**: Willing to DO something. Distinguished from 希望 (hope/wish). Used correctly in warmup.
+- **其实**: Actually / in fact — used to correct an assumption. Student used it naturally in warmup.
+- **到底**: Used in urgent/frustrated questions only — NOT for sequential narrative (that's 最后). Drilled in writing: 你到底来不来？
+- **连...都**: First introduced in reading passage (连五分钟都等不了). Structure: 连 + [emphasized thing] + 都 + [verb]. First proper use in writing: 你连早睡都做不到吗？Needs dedicated drilling next session.
+
+## 2026-05-06
+- **请客**: To treat someone to a meal / to pay for others. Came up in writing practice — more natural than 买饭 when talking about paying for a meal out. E.g. 难道你不愿意请客吗？
+- **堵车**: Traffic jam. Came up in reading passage about taking the subway vs bus to Xiangshan. 不用担心堵车 — don't need to worry about traffic jams.
+- **出发**: To set off / depart. Came up in reading passage — 我们几点出发？(What time do we set off?)

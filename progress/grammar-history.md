@@ -43,3 +43,23 @@ A concessive structure showing acknowledgment of an obstacle, then contrast/comm
 A-not-A questions are formed by repeating the verb or adjective with 不 in between: Verb+不+Verb or Adj+不+Adj. More direct and colloquial than 吗 questions. Drop 了 in A-not-A questions — the question form implies present state. For two-character adjectives like 好吃, split at the first character: 好不好吃.
 
 *Example:* 你想不想去爬山？(Do you want to go hiking?) / 这个菜好不好吃？(Is this dish good?) / 你愿不愿意帮我？(Are you willing to help me?)
+
+## Tag questions and rhetorical questions (2026-05-05)
+Tag questions seek confirmation or invite opinion: 对吧？(right?), 是吧？(I assume?), 你说呢？(what do you think?). Rhetorical questions make strong statements: 不是...吗？(isn't it...? — emphasizes the obvious), 哪里 (not at all — humble denial), 难道...吗？(don't tell me...? — expresses disbelief).
+
+*Example:* 你也觉得这里的咖啡很好喝，对吧？(You also think the coffee here is good, right?) / 你不是说你不累吗？(Didn't you say you weren't tired?) / 哪里哪里。(Not at all!)
+
+## 连...都/也 (even) (2026-05-06)
+连...都/也 means "even." Structure: 连 + [thing being emphasized] + 都/也 + [verb]. Highlights that even the most minimal/basic thing is affected. The thing after 连 is always what's being emphasized. First introduced in reading passage 5/5/2026 — needs dedicated drilling in a future session.
+
+*Example:* 连五分钟都等不了。(Can't even wait five minutes.) / 他连你的名字都不知道。(He doesn't even know your name.)
+
+## Tag questions and rhetorical questions (drilled) (2026-05-06)
+Full drill session completing what was introduced 5/5/2026. Tag questions: 对吧/是吧 (confirmation, goes at END of sentence), 你说呢 (inviting opinion). Rhetorical questions: 不是...吗 (stating the obvious), 难道...吗 (disbelief/shock), 哪里哪里 (humble denial of compliment). Key errors: tag goes at end not beginning; don't combine 对吧 with 吗; 难道 questions don't use 了.
+
+*Example:* 你到底来不来？难道你没吃过饺子吗？你不是知道我们要一起吃早饭吗？哪里哪里，还要努力学习！
+
+## 比 comparisons (2026-05-06)
+Basic structure: A + 比 + B + adjective. NO 很 after the adjective. Degree words go AFTER the adjective: 一点儿 (a little more), 多了/得多 (much more). Negative comparison uses 没有: A + 没有 + B + adjective. 比较 means "relatively" and is used without a second subject. Location words always go BEFORE the verb: 在图书馆学习比较好.
+
+*Example:* 地铁比公共汽车快。(The subway is faster than the bus.) / 香山比我家远多了。(Xiangshan is much farther than my home.) / 坐地铁没有坐出租车方便。(Taking the subway isn't as convenient as taking a taxi.) / 在图书馆学习比较好。(It's relatively better to study at the library.)
