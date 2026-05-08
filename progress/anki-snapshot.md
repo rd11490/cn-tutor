@@ -1,4 +1,4 @@
-# Anki Vocab Snapshot — 2026-05-06
+# Anki Vocab Snapshot — 2026-05-08
 
 **Total reviewed:** 1072 | **Confident:** 744 | **Learning:** 124 | **Shaky:** 204 | **Never reviewed (excluded):** 4528
 

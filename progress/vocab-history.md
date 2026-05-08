@@ -57,3 +57,8 @@ Words and notes from study sessions. Updated automatically at session end.
 - **请客**: To treat someone to a meal / to pay for others. Came up in writing practice — more natural than 买饭 when talking about paying for a meal out. E.g. 难道你不愿意请客吗？
 - **堵车**: Traffic jam. Came up in reading passage about taking the subway vs bus to Xiangshan. 不用担心堵车 — don't need to worry about traffic jams.
 - **出发**: To set off / depart. Came up in reading passage — 我们几点出发？(What time do we set off?)
+
+## 2026-05-08
+- **挑食**: Picky eater / to be picky about food. Came up in 连...都 drill: 这个孩子太挑食了，他连蔬菜都不吃。New word this session — add to Anki.
+- **散步**: To take a walk (sànbù). Appeared in reading passage. Often doubled for casual feel: 散散步 = take a little stroll.
+- **很快就到**: Set phrase meaning "will get there very quickly." 很快 (very soon) + 就 (then, signals imminent action) + 到 (arrive). Came up in warmup correction. Very common in conversation.
