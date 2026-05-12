@@ -62,3 +62,9 @@ Words and notes from study sessions. Updated automatically at session end.
 - **挑食**: Picky eater / to be picky about food. Came up in 连...都 drill: 这个孩子太挑食了，他连蔬菜都不吃。New word this session — add to Anki.
 - **散步**: To take a walk (sànbù). Appeared in reading passage. Often doubled for casual feel: 散散步 = take a little stroll.
 - **很快就到**: Set phrase meaning "will get there very quickly." 很快 (very soon) + 就 (then, signals imminent action) + 到 (arrive). Came up in warmup correction. Very common in conversation.
+
+## 2026-05-12
+- **取得**: Formal verb: to achieve / obtain. Common in formal encouragement: 取得好成绩 (achieve good results). New Anki card created 5/11/2026.
+- **争光**: To win honour for / bring glory to. Always used with 为: 为班级争光 (win honour for the class). Formal/written register. New Anki card created 5/11/2026.
+- **不得**: Formal "must not / not permitted to." Stronger than 不能/不可以. No subject needed in notices. Structure: 不得 + verb. E.g. 不得进入图书馆, 不得穿校服.
+- **还书**: To return books (to library). 还 (huán, 2nd tone) = to return something borrowed. Different from 还 (hái) = still/also. Key distinction: same character, different tone, different meaning.

@@ -1,6 +1,6 @@
-# Anki Vocab Snapshot — 2026-05-08
+# Anki Vocab Snapshot — 2026-05-09
 
-**Total reviewed:** 1072 | **Confident:** 744 | **Learning:** 124 | **Shaky:** 204 | **Never reviewed (excluded):** 4528
+**Total reviewed:** 1072 | **Confident:** 744 | **Learning:** 124 | **Shaky:** 204 | **Never reviewed (excluded):** 4529
 
 ## Confident (interval ≥21d, ease ≥2.5)
 

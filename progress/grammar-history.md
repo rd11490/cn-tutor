@@ -68,3 +68,8 @@ Basic structure: A + 比 + B + adjective. NO 很 after the adjective. Degree wor
 连...都/也 means "even." Structure: 连 + [emphasized thing] + 都/也 + [verb/result]. The emphasized thing can be a noun, action, or time amount. Key rules: (1) Use 没 not 不 for completed actions (连饭都没吃). (2) Use 不 for habits (连蔬菜都不吃). (3) Result complements negate internally: 睡不好, 走不动, 吃不下. (4) Avoid splitting two-character verbs — use a noun or time amount after 连 instead (连一分钟都没休息, not 连休都没休息). (5) Repeating the verb for emphasis is natural: 连走都走不动.
 
 *Example:* 他今天很忙，连饭都没吃。(He was so busy today he didn't even eat.) / 我连觉都睡不好。(I can't even sleep properly.) / 连一分钟都没休息。(Didn't rest even for a minute.)
+
+## Formal notice structures: 不得, 将于, [place]内, 关闭期间 (2026-05-12)
+Key formal written Chinese structures for announcements and notices: (1) 不得 + verb = must not / not permitted to (stronger and more formal than 不能/不可以, no subject needed). (2) 将于 + time + verb = will [verb] on [time] (formal future). (3) [place] + 内 = within the premises of [place] (broader than literal "inside"). (4) [event/state] + 期间 = during [event/period]. These structures appear in school notices, official announcements, and formal WeChat posts.
+
+*Example:* 图书馆将于下周五关闭。关闭期间，不得进入图书馆。(The library will close next Friday. During the closure, entry to the library is not permitted.)
